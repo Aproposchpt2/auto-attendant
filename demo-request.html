@@ -1,363 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Request a Demo — FlowDesk Pro Auto-Attendant</title>
-<meta name="description" content="Request a live demo of the FlowDesk Pro Smart Auto-Attendant. Never miss another call.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:      #030816;
-  --bg2:     #061225;
-  --accent:  #4F6EF7;
-  --accent2: #7C3AED;
-  --text:    #F5F8FF;
-  --muted:   #7A90B8;
-  --muted2:  #4A5D7A;
-  --border:  rgba(79,110,247,0.15);
-  --border2: rgba(79,110,247,0.30);
-  --glass:   rgba(6,18,37,0.7);
-  --red:     #FF6B7A;
-  --display: 'Syne', sans-serif;
-  --body:    'Inter', sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--muted);
-  font-family: var(--body);
-  font-size: 15px;
-  line-height: 1.65;
-  overflow-x: hidden;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem clamp(1rem, 4vw, 3rem);
-  border-bottom: 1px solid var(--border);
-  background: rgba(3,8,22,0.9);
-  backdrop-filter: blur(20px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.nav-logo { display: flex; align-items: center; gap: 0.75rem; }
-.nav-logo img { height: 32px; filter: drop-shadow(0 0 8px rgba(79,110,247,0.4)); }
-.nav-logo-text {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-.nav-back { font-size: 0.8rem; color: var(--muted); font-weight: 500; transition: color 0.15s; }
-.nav-back:hover { color: var(--text); }
-
-main {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(2rem,6vw,5rem) clamp(1rem,5vw,3rem);
-}
-.form-wrap { width: 100%; max-width: 560px; }
-.form-kicker {
-  font-family: var(--display);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 1rem;
-}
-.form-kicker::before {
-  content: '';
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
-  animation: pulse 2s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
-.form-heading {
-  font-family: var(--display);
-  font-size: clamp(2rem,5vw,3.4rem);
-  font-weight: 800;
-  color: var(--text);
-  line-height: 1.05;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.8rem;
-}
-.form-heading em { font-style: normal; color: var(--accent); }
-.form-subhead { color: var(--muted); font-size: 0.95rem; line-height: 1.75; margin-bottom: 2.2rem; max-width: 480px; }
-
-.form-card {
-  border: 1px solid var(--border2);
-  border-radius: 20px;
-  background: rgba(6,18,37,0.85);
-  padding: clamp(22px,4vw,36px);
-  backdrop-filter: blur(16px);
-}
-.field { margin-bottom: 16px; }
-label {
-  display: block;
-  font-family: var(--display);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted2);
-  margin-bottom: 7px;
-}
-input[type="text"],
-input[type="tel"],
-input[type="email"] {
-  width: 100%;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px 14px;
-  color: var(--text);
-  font-size: 0.93rem;
-  font-family: var(--body);
-  transition: border-color 0.18s, background 0.18s;
-  outline: none;
-}
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="email"]:focus {
-  border-color: var(--accent);
-  background: rgba(79,110,247,0.04);
-  box-shadow: 0 0 0 3px rgba(79,110,247,0.12);
-}
-input::placeholder { color: var(--muted2); }
-input.error { border-color: var(--red); }
-.field-error { font-size: 0.76rem; color: var(--red); margin-top: 5px; display: none; }
-.field-error.show { display: block; }
-
-.submit-btn {
-  width: 100%;
-  padding: 14px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-family: var(--display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #fff;
-  background: linear-gradient(135deg, var(--accent), var(--accent2));
-  box-shadow: 0 4px 24px rgba(79,110,247,0.35);
-  transition: transform 0.18s, box-shadow 0.18s;
-  margin-top: 8px;
-}
-.submit-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(79,110,247,0.5); }
-.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-
-.form-note { font-size: 0.78rem; color: var(--muted2); text-align: center; margin-top: 14px; line-height: 1.5; }
-
-.success-state { display: none; text-align: center; padding: 2rem 0; }
-.success-icon {
-  width: 60px; height: 60px;
-  border-radius: 50%;
-  background: rgba(79,110,247,0.1);
-  border: 2px solid var(--accent);
-  display: grid; place-items: center;
-  margin: 0 auto 1.2rem;
-}
-.success-icon svg { width: 26px; height: 26px; stroke: var(--accent); fill: none; stroke-width: 2; }
-.success-state h3 { font-family: var(--display); font-size: 1.8rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; }
-.success-state p { color: var(--muted); margin-bottom: 1.5rem; }
-.success-redirect { font-size: 0.72rem; color: var(--accent); letter-spacing: 0.08em; }
-
-.form-general-error {
-  display: none;
-  background: rgba(255,107,122,0.06);
-  border: 1px solid rgba(255,107,122,0.22);
-  border-radius: 10px;
-  padding: 11px 14px;
-  font-size: 0.86rem;
-  color: var(--red);
-  margin-top: 12px;
-  text-align: center;
-}
-.form-general-error.show { display: block; }
-
-footer {
-  padding: 1.5rem clamp(1rem,4vw,3rem);
-  border-top: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.footer-meta { font-size: 0.78rem; color: var(--muted2); }
-.footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-.footer-links a { font-size: 0.8rem; color: var(--muted2); transition: color 0.15s; }
-.footer-links a:hover { color: var(--text); }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Auto-Attendant Demo Request — FlowDesk Pro</title>
+  <meta name="description" content="Request a live demo of the FlowDesk Pro Smart Auto-Attendant. Your 24/7 professional front desk." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #F8F9FA;
+      color: #333333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      background: #1B3A6B;
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 8px rgba(27,58,107,0.18);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo-mark { width: 40px; height: 40px; background: #B8860B; border-radius: 8px; display: grid; place-items: center; font-weight: 700; font-size: 1rem; color: #fff; }
+    .nav-brand-text { display: flex; flex-direction: column; }
+    .nav-brand-name { font-size: 1rem; font-weight: 700; color: #ffffff; line-height: 1.2; }
+    .nav-brand-sub { font-size: 0.68rem; color: rgba(255,255,255,0.65); font-weight: 400; letter-spacing: 0.04em; }
+    .nav-back { font-size: 0.82rem; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: #B8860B; }
+    main { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 48px 20px 64px; }
+    .page-wrap { width: 100%; max-width: 560px; }
+    .page-header { margin-bottom: 32px; }
+    .page-kicker { display: inline-block; background: rgba(27,58,107,0.08); border: 1px solid rgba(27,58,107,0.2); color: #1B3A6B; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; margin-bottom: 14px; }
+    .page-title { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; color: #1B3A6B; line-height: 1.2; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .page-subtitle { font-size: 1rem; color: #555555; line-height: 1.65; }
+    .form-card { background: #ffffff; border: 1px solid #E2E6EC; border-radius: 12px; padding: 36px; box-shadow: 0 4px 24px rgba(27,58,107,0.07); }
+    .field { margin-bottom: 20px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+    label.field-label { display: block; font-size: 0.82rem; font-weight: 600; color: #1B3A6B; margin-bottom: 6px; }
+    input[type="text"], input[type="email"], input[type="tel"], textarea {
+      width: 100%; background: #ffffff; border: 1px solid #C8D0DC; border-radius: 6px;
+      padding: 11px 14px; font-family: 'Inter', system-ui, sans-serif; font-size: 0.93rem;
+      color: #333333; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    input::placeholder, textarea::placeholder { color: #9CA3AF; }
+    input:focus, textarea:focus { border-color: #1B3A6B; box-shadow: 0 0 0 3px rgba(27,58,107,0.12); }
+    input.error, textarea.error { border-color: #DC2626; }
+    textarea { resize: vertical; min-height: 100px; }
+    .field-error { font-size: 0.78rem; color: #DC2626; margin-top: 5px; display: none; }
+    .field-error.show { display: block; }
+    .sms-opt-in { background: #F8F9FA; border: 1px solid #E2E6EC; border-radius: 6px; padding: 14px 16px; margin-bottom: 20px; }
+    .sms-opt-in label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+    .sms-opt-in input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; width: 15px; height: 15px; accent-color: #1B3A6B; }
+    .sms-text { font-size: 0.82rem; color: #444444; line-height: 1.55; }
+    .sms-text a { color: #1B3A6B; }
+    .sms-note { font-size: 0.75rem; color: #666666; margin: 8px 0 0 25px; line-height: 1.5; }
+    .submit-btn { width: 100%; padding: 14px; background: #1B3A6B; color: #ffffff; border: none; border-radius: 6px; font-family: 'Inter', system-ui, sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.15s; }
+    .submit-btn:hover:not(:disabled) { background: #B8860B; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .form-note { font-size: 0.78rem; color: #888888; text-align: center; margin-top: 14px; line-height: 1.5; }
+    .success-state { display: none; text-align: center; padding: 2rem 0; }
+    .success-icon { width: 60px; height: 60px; border-radius: 50%; background: rgba(27,58,107,0.08); border: 2px solid #1B3A6B; display: grid; place-items: center; margin: 0 auto 1.2rem; }
+    .success-icon svg { width: 26px; height: 26px; stroke: #1B3A6B; fill: none; stroke-width: 2.5; }
+    .success-state h3 { font-size: 1.5rem; font-weight: 700; color: #1B3A6B; margin-bottom: 0.5rem; }
+    .success-state p { color: #555555; }
+    .form-general-error { display: none; background: #FEF2F2; border: 1px solid #FECACA; border-radius: 6px; padding: 10px 14px; font-size: 0.86rem; color: #DC2626; margin-top: 12px; text-align: center; }
+    .form-general-error.show { display: block; }
+    footer { background: #1B3A6B; padding: 20px 40px; text-align: center; }
+    .footer-links { display: flex; align-items: center; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 8px; }
+    .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #B8860B; }
+    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.45); }
+    @media (max-width: 560px) {
+      nav { padding: 14px 20px; }
+      .form-card { padding: 24px 20px; }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      footer { padding: 18px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <a class="nav-logo" href="/">
-    <img src="https://aiflowdeskpro.com/AI4-FLOWDESK-PRO-LOGO.png" alt="AI4 FlowDesk Pro">
-    <span class="nav-logo-text">FlowDesk Pro</span>
-  </a>
-  <a class="nav-back" href="/">← Back to Overview</a>
-</nav>
+  <nav>
+    <a class="nav-brand" href="/">
+      <div class="nav-logo-mark">FP</div>
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">FlowDesk Pro</span>
+        <span class="nav-brand-sub">Smart Auto-Attendant</span>
+      </div>
+    </a>
+    <a class="nav-back" href="/">← Back to Overview</a>
+  </nav>
 
-<main>
-  <div class="form-wrap">
-    <div class="form-kicker">Request a Demo</div>
-    <h1 class="form-heading">Smart <em>Auto-Attendant</em></h1>
-    <p class="form-subhead">Fill out the form and we will set up a live walkthrough of your AI-powered auto-attendant — custom-built for your business.</p>
+  <main>
+    <div class="page-wrap">
 
-    <div class="form-card">
-      <form id="demoForm" novalidate>
-        <div class="field">
-          <label for="business_name">Business Name</label>
-          <input type="text" id="business_name" name="business_name" placeholder="Acme Corp" autocomplete="organization">
-          <div class="field-error" id="err_business_name">Please enter your business name.</div>
-        </div>
-        <div class="field">
-          <label for="contact_name">Your Name</label>
-          <input type="text" id="contact_name" name="contact_name" placeholder="Jane Smith" autocomplete="name">
-          <div class="field-error" id="err_contact_name">Please enter your name.</div>
-        </div>
-        <div class="field">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="+1 (702) 555-0100" autocomplete="tel">
-          <div class="field-error" id="err_phone">Please enter a valid phone number.</div>
-        </div>
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="jane@acmecorp.com" autocomplete="email">
-          <div class="field-error" id="err_email">Please enter a valid email address.</div>
-        </div>
-        <div class="sms-opt-in" style="margin:16px 0;padding:12px 14px;border:1px solid rgba(79,110,247,0.3);border-radius:10px;background:rgba(79,110,247,0.04)">
-          <label style="display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted);cursor:pointer;line-height:1.55;text-transform:none;letter-spacing:normal">
-            <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" style="margin-top:3px;flex-shrink:0;accent-color:var(--accent)">
-            <span>I agree to receive SMS notifications from AI4 Businesses / FlowDesk Pro regarding my demo request, follow-up communications, and service updates. Message and data rates may apply. Message frequency varies. Reply STOP to unsubscribe at any time. Reply HELP for help. View our <a href="https://ai4businesses.org/privacy" target="_blank" style="color:var(--accent)">Privacy Policy</a> and <a href="https://ai4businesses.org/terms" target="_blank" style="color:var(--accent)">Terms of Service</a>.</span>
-          </label>
-          <p style="font-size:11px;color:var(--muted2);margin:8px 0 0 25px;line-height:1.5">SMS consent is optional. You may still submit this form without checking this box. Standard message and data rates may apply.</p>
-        </div>
-        <button type="submit" class="submit-btn" id="submitBtn">Request My Demo →</button>
-        <div class="form-general-error" id="generalError">Something went wrong. Please try again.</div>
-      </form>
-
-      <div class="success-state" id="successState">
-        <div class="success-icon">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <h3>You're on the list.</h3>
-        <p>We'll reach out shortly to schedule your live walkthrough.</p>
-        <div class="success-redirect">Taking you back in 3 seconds…</div>
+      <div class="page-header">
+        <div class="page-kicker">Live Demo Request</div>
+        <h1 class="page-title">Smart Auto-Attendant Demo Request</h1>
+        <p class="page-subtitle">Experience your 24/7 professional front desk. Request your demo below and we'll schedule a live walkthrough tailored to your business.</p>
       </div>
 
-      <p class="form-note">Your information is never sold. We'll reach out to schedule your live walkthrough.</p>
+      <div class="form-card">
+        <form id="demoForm" novalidate>
+
+          <div class="field-row">
+            <div class="field">
+              <label class="field-label" for="first_name">First Name *</label>
+              <input type="text" id="first_name" name="first_name" placeholder="Jane" autocomplete="given-name" required />
+              <div class="field-error" id="err_first_name">First name is required.</div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="last_name">Last Name *</label>
+              <input type="text" id="last_name" name="last_name" placeholder="Smith" autocomplete="family-name" required />
+              <div class="field-error" id="err_last_name">Last name is required.</div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@company.com" autocomplete="email" required />
+            <div class="field-error" id="err_email">Please enter a valid email address.</div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="business_name">Business Name *</label>
+            <input type="text" id="business_name" name="business_name" placeholder="Acme Corp" autocomplete="organization" required />
+            <div class="field-error" id="err_business_name">Business name is required.</div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+1 (702) 555-0100" autocomplete="tel" />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="reason">Reason for Demo Request</label>
+            <textarea id="reason" name="reason" placeholder="Tell us about your business and what you're looking to automate..."></textarea>
+          </div>
+
+          <div class="sms-opt-in">
+            <label>
+              <input type="checkbox" id="sms_consent" name="sms_consent" value="yes">
+              <span class="sms-text">I agree to receive SMS notifications from AI4 Businesses / FlowDesk Pro regarding my demo request, follow-up communications, and service updates. Message and data rates may apply. Message frequency varies. Reply STOP to unsubscribe at any time. Reply HELP for help. View our <a href="https://ai4businesses.org/privacy" target="_blank">Privacy Policy</a> and <a href="https://ai4businesses.org/terms" target="_blank">Terms of Service</a>.</span>
+            </label>
+            <p class="sms-note">SMS consent is optional. You may still submit this form without checking this box. Standard message and data rates may apply.</p>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Request My Demo</button>
+          <div class="form-general-error" id="generalError">Something went wrong. Please try again.</div>
+        </form>
+
+        <div class="success-state" id="successState">
+          <div class="success-icon">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3>Demo request received.</h3>
+          <p>We'll be in touch within one business day to schedule your walkthrough.</p>
+        </div>
+
+        <p class="form-note">Your information is never sold or shared. We'll reach out to schedule your live walkthrough.</p>
+      </div>
+
     </div>
-  </div>
-</main>
+  </main>
 
-<footer>
-  <div class="footer-meta">© 2026 Apropos Group LLC · FlowDesk Pro. All rights reserved.</div>
-  <div class="footer-links">
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms &amp; Conditions</a>
-    <a href="/">Overview</a>
-  </div>
-</footer>
+  <footer>
+    <div class="footer-links">
+      <a href="https://ai4businesses.org/privacy" target="_blank">Privacy Policy</a>
+      <a href="https://ai4businesses.org/terms" target="_blank">Terms of Service</a>
+      <a href="/">Smart Auto-Attendant</a>
+    </div>
+    <div class="footer-copy">© 2026 Apropos Group LLC. All rights reserved.</div>
+  </footer>
 
-<script>
-'use strict';
-const form = document.getElementById('demoForm');
-const submitBtn = document.getElementById('submitBtn');
-const successState = document.getElementById('successState');
-const generalError = document.getElementById('generalError');
+  <script>
+  'use strict';
+  const form = document.getElementById('demoForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const successState = document.getElementById('successState');
+  const generalError = document.getElementById('generalError');
 
-function clearErrors() {
-  document.querySelectorAll('.field-error').forEach(el => el.classList.remove('show'));
-  document.querySelectorAll('input[type="text"],input[type="tel"],input[type="email"]').forEach(el => el.classList.remove('error'));
-  generalError.classList.remove('show');
-}
-
-function showError(fieldId, errId) {
-  const el = document.getElementById(fieldId);
-  if (el) el.classList.add('error');
-  document.getElementById(errId).classList.add('show');
-}
-
-function validate() {
-  let valid = true;
-  const businessName = document.getElementById('business_name').value.trim();
-  const contactName  = document.getElementById('contact_name').value.trim();
-  const phone        = document.getElementById('phone').value.trim();
-  const email        = document.getElementById('email').value.trim();
-
-  if (!businessName) { showError('business_name', 'err_business_name'); valid = false; }
-  if (!contactName)  { showError('contact_name',  'err_contact_name');  valid = false; }
-  if (!phone || phone.replace(/\D/g,'').length < 10) { showError('phone', 'err_phone'); valid = false; }
-  if (!email || !email.includes('@') || !email.includes('.')) { showError('email', 'err_email'); valid = false; }
-  // sms_consent is optional — no validation required
-
-  return valid;
-}
-
-const params = new URLSearchParams(window.location.search);
-const product = params.get('product') || 'auto-attendant';
-
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  clearErrors();
-  if (!validate()) return;
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = 'Submitting…';
-
-  const payload = {
-    business_name: document.getElementById('business_name').value.trim(),
-    contact_name:  document.getElementById('contact_name').value.trim(),
-    phone:         document.getElementById('phone').value.trim(),
-    email:         document.getElementById('email').value.trim(),
-    sms_consent:   document.getElementById('sms_consent').checked ? 'yes' : 'no',
-    product,
-    source: 'auto-attendant-demo-request',
-    demo_site: 'auto-attendant.aiflowdeskpro.com',
-  };
-
-  try {
-    const res = await fetch('/.netlify/functions/submit-demo-request', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) throw new Error('Server error ' + res.status);
-
-    form.style.display = 'none';
-    successState.style.display = 'block';
-    setTimeout(() => { window.location.href = '/'; }, 3000);
-  } catch {
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Request My Demo →';
-    generalError.classList.add('show');
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('input, textarea').forEach(el => el.classList.remove('error'));
+    generalError.classList.remove('show');
   }
-});
-</script>
+
+  function showError(id, errId) {
+    const el = document.getElementById(id); if (el) el.classList.add('error');
+    const err = document.getElementById(errId); if (err) err.classList.add('show');
+  }
+
+  function validate() {
+    let valid = true;
+    if (!document.getElementById('first_name').value.trim()) { showError('first_name', 'err_first_name'); valid = false; }
+    if (!document.getElementById('last_name').value.trim())  { showError('last_name',  'err_last_name');  valid = false; }
+    const email = document.getElementById('email').value.trim();
+    if (!email || !email.includes('@') || !email.includes('.')) { showError('email', 'err_email'); valid = false; }
+    if (!document.getElementById('business_name').value.trim()) { showError('business_name', 'err_business_name'); valid = false; }
+    return valid;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    clearErrors();
+    if (!validate()) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting…';
+    const payload = {
+      first_name: document.getElementById('first_name').value.trim(),
+      last_name: document.getElementById('last_name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      business_name: document.getElementById('business_name').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      reason: document.getElementById('reason').value.trim(),
+      sms_consent: document.getElementById('sms_consent').checked ? 'yes' : 'no',
+      demo_site: 'auto-attendant.aiflowdeskpro.com',
+      source: 'auto-attendant-demo-request',
+    };
+    try {
+      const res = await fetch('/.netlify/functions/submit-demo-request', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error('Server error');
+      form.style.display = 'none';
+      successState.style.display = 'block';
+    } catch {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Request My Demo';
+      generalError.classList.add('show');
+    }
+  });
+  </script>
 </body>
 </html>
